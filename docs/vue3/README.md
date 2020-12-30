@@ -3,7 +3,7 @@
 
 <font size=4 color=red></font>
 
-## 1、动态参数
+## 1. 动态参数
 
 ```html
 <input :[inutProp]="url" /> <button :[eventName]="doSomething">测试按钮</button>
@@ -18,7 +18,7 @@ data(){
     }
 ```
 
-## 2、多事件处理
+## 2. 多事件处理
 
 ```html
 <button @click="addOne(), log()">
@@ -43,4 +43,4 @@ export default {
 }
 ```
 
-## 3、按键修饰符
+## 3. 按键修饰符
