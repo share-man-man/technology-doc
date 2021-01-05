@@ -64,4 +64,21 @@ export default {
 
 ## 5.Teleport
 
-将组件挂载到指定节点
+通过<font color="green">&lt;Teleport&gt;&lt;/Teleport&gt;</font> 将组件挂载到指定节点
+
+<iframe height="435" style="width: 100%;" scrolling="no" title="Vue 3 Teleport" src="https://codepen.io/team/Vue/embed/gOPNvjR?height=435&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/team/Vue/pen/gOPNvjR'>Vue 3 Teleport</a> by Vue
+  (<a href='https://codepen.io/Vue'>@Vue</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## 5.Reactive API（响应式 API）
+
+reactive、readonly、isProxy、isReactive、isReadonly、toRaw、markRaw、shallowReactive、shallowReadonly
+
+## 6.Composition API（组合式 API）
+
+ref()、toRef()、toRefs()的区别
+
+mounted 对应 onMounted、watch 对应 onWatch
+
+setup()
