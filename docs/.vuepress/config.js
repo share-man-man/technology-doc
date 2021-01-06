@@ -1,18 +1,27 @@
 module.exports = {
-  title: "小满的文档",
-  description: "技术文档",
+  title: "小满的技术文档",
+  description: "Vue.js - The 渐进式 JavaScript 框架",
   themeConfig: {
-    lastUpdated: "Last Updated", // string | boolean
-    smoothScroll: true,
-    // nav: [
-    //   { text: "Home", link: "/" },
-    //   { text: "Guide", link: "/guide/" },
-    //   { text: "External", link: "https://google.com" },
-    // ],
+    // logo: "/logo.png",
+    lastUpdated: "Last updated",
+    sidebarDepth: 2,
+    smoothScroll: false,
     sidebar: [
-      ["/", "首页"],
-      ["/deno/", "deno入门"],
-      ["/vue3/", "Vue3.x"],
+      {
+        title: "首页",
+        collapsable: false,
+        path: "/",
+      },
+      {
+        title: "deno服务端",
+        path: "/deno/",
+        children: ["/deno/"],
+      },
+      {
+        title: "vue3.x 新特性",
+        path: "/vue3/external",
+        children: ["/vue3/external", "/vue3/internal"],
+      },
     ],
   },
 };

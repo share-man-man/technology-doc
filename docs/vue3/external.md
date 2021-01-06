@@ -1,8 +1,4 @@
-# V3 新特性
-
-> 基于 proxy 和 reflect 实现
-
-<font size=4 color=red></font>
+# 外部改变
 
 ## 1.动态参数
 
@@ -51,18 +47,7 @@ export default {
 };
 ```
 
-## 4.插槽
-
-作用域插槽 <font color="green">v-slot</font> 可使用 <font color="green">es6</font> 的解构
-
-```html
-<todo-list v-slot="{ item: todo }">
-  <i class="fas fa-check"></i>
-  <span class="green">{{ todo }}</span>
-</todo-list>
-```
-
-## 5.Teleport
+## 4.Teleport
 
 通过<font color="green">&lt;Teleport&gt;&lt;/Teleport&gt;</font> 将组件挂载到指定节点
 
@@ -73,12 +58,61 @@ export default {
 
 ## 5.Reactive API（响应式 API）
 
-reactive、readonly、isProxy、isReactive、isReadonly、toRaw、markRaw、shallowReactive、shallowReadonly
+> reactive、ref、toRef(toRefs)
+
+reactive:传入对象，返回响应式对象；
+ref:传入基础类型的值，返回响应式 ref 对象，通过.value 访问值
+还有 isReactive、isProxy、readonly 等
+
+<iframe height="1055" style="width: 100%;" scrolling="no" title="reactive" src="https://codepen.io/shuxiaoman/embed/xxEjvjv?height=1055&theme-id=light&default-tab=js,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/shuxiaoman/pen/xxEjvjv'>reactive</a> by GrainFull
+  (<a href='https://codepen.io/shuxiaoman'>@shuxiaoman</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## 6.Composition API（组合式 API）
 
-ref()、toRef()、toRefs()的区别
+`setup`
 
-mounted 对应 onMounted、watch 对应 onWatch
+- 使用模版时，返回对象
 
-setup()
+```js
+export default {
+  setup() {
+    const readersNumber = ref(0);
+    const book = reactive({ title: "Vue 3 Guide" });
+
+    // expose to template
+    return {
+      readersNumber,
+      book,
+    };
+  },
+};
+```
+
+- 不使用模版时，返回渲染函数或 jsx
+
+```js
+export default {
+  setup() {
+    const readersNumber = ref(0);
+    const book = reactive({ title: "Vue 3 Guide" });
+    // Please note that we need to explicitly expose ref value here
+    return () => h("div", [readersNumber.value, book.title]);
+  },
+};
+```
+
+`生命周期钩子函数映射`
+
+- ~~`beforeCreate`~~ -> use `setup()`
+- ~~`created`~~ -> use `setup()`
+- `beforeMount` -> `onBeforeMount`
+- `mounted` -> `onMounted`
+- `beforeUpdate` -> `onBeforeUpdate`
+- `updated` -> `onUpdated`
+- `beforeUnmount` -> `onBeforeUnmount`
+- `unmounted` -> `onUnmounted`
+- `errorCaptured` -> `onErrorCaptured`
+- `renderTracked` -> `onRenderTracked`
+- `renderTriggered` -> `onRenderTriggered`
