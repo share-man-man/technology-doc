@@ -56,7 +56,28 @@ export default {
   (<a href='https://codepen.io/Vue'>@Vue</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## 5.Reactive API（响应式 API）
+## 5.片段（对标 react 的 fragment）
+
+- `v2.x`版本的组件，必须只能有一个根节点
+- `v3.x`版本的组件，允许没有根节点。
+- 当组件没有根节点时，传入的 style 失效
+
+## 6.Suspense（官方文档未提及）
+
+控制异步组件的加载展示状态
+
+```html
+<Suspense>
+  <template #default>
+    <AsyncComponent></AsyncComponent>
+  </template>
+  <template #fallback>
+    <div class="loading"></div>
+  </template>
+</Suspense>
+```
+
+## 6.Reactive API（响应式 API）
 
 > reactive、ref、toRef(toRefs)
 
@@ -69,7 +90,7 @@ ref:传入基础类型的值，返回响应式 ref 对象，通过.value 访问�
   (<a href='https://codepen.io/shuxiaoman'>@shuxiaoman</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## 6.Composition API（组合式 API）
+## 7.Composition API（组合式 API）
 
 `setup`
 
